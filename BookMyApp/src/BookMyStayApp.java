@@ -16,7 +16,7 @@ class BookMyStayApp {
     /**
      * Main method - Entry point of the application.
      *
-     * @param args Command-line arguments (not used in this application)
+     * @param args Command-line arguments (not used in this application )
      */
     public static void main(String[] args) {
 
