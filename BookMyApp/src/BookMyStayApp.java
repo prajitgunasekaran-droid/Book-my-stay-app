@@ -1,33 +1,30 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class BookMyStayApp {
+
     public static void main(String[] args) {
 
-        Room single = new SingleRoom();
-        single.displayRoomDetails();
+        RoomInventory inventory = new RoomInventory();
+        inventory.displayInventory();
     }
 }
 
-// Abstract class (NOT public)
-abstract class Room {
-    private String roomType;
+// NOT public
+class RoomInventory {
 
-    public Room(String roomType) {
-        this.roomType = roomType;
+    private Map<String, Integer> inventory;
+
+    public RoomInventory() {
+        inventory = new HashMap<>();
+        inventory.put("Single Room", 5);
+        inventory.put("Double Room", 3);
+        inventory.put("Suite Room", 2);
     }
 
-    public String getRoomType() {
-        return roomType;
-    }
-
-    public abstract void displayRoomDetails();
-}
-
-// Concrete class
-class SingleRoom extends Room {
-    public SingleRoom() {
-        super("Single Room");
-    }
-
-    public void displayRoomDetails() {
-        System.out.println(getRoomType());
+    public void displayInventory() {
+        for (Map.Entry<String, Integer> entry : inventory.entrySet()) {
+            System.out.println(entry.getKey() + " → " + entry.getValue());
+        }
     }
 }
